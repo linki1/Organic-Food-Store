@@ -232,22 +232,7 @@ font-size: 1.2rem;
     display: flex;
     align-items: center;
 }
-.blog-blok__titel{
-    height: 40px;
-    display: flex;
-    gap: 13px;
-    align-items:flex-end;
-    margin: 44px 0 44px 13%;
-}
-.blog-blok__titel>svg{
-height: 15px;
-}
-.blog-blok__titel-big{
-    font-size:3rem ;
-}
-.blog-blok__titel-smal{
-    color: var(--maincColar);
-}
+
 .article-poste__content{
     width: 35%;
     margin-top: 5%;
@@ -285,14 +270,32 @@ height: 15px;
     align-items:flex-start;
     color: var(--colarText);
 }
-.blog-blok__container{
+.titel{
+    display: flex;
+    gap: 13px;
+    align-items:flex-end;
+}
+.blog-blok__titel{
+    height: 40px;
+    margin: 44px 0 44px 13%;
+}
+.blog-blok__titel>svg{
+height: 15px;
+}
+.titel-big{
+    font-size:3rem ;
+}
+.blog-blok__titel-smal{
+    color: var(--maincColar);
+}
+.container-sqrtshop{
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap-reverse;
     gap: 40px;
 }
-.blog-blok__itm{
+.shop-itm{
     position: relative;
     height: 386px;
     width: 23%;
@@ -323,16 +326,21 @@ RIGHT: 0%;
     }
     
 .blog-blok__itm>div{
+    width: 75%;
     margin-top: 20px ;
     display: flex;
-    gap: 10%;
+    gap: 22%;
     position: relative;
 } 
 .blog-blok__itm>div>svg{
     position: absolute;
-    left: 29%;
+    right: 56%;
     top: -10%;
 } 
+
+.blog-blok__vie{
+    position: relative;
+}
 .blog-blok__vie::after{
 content: " ";
 background-color: var(--maincColar);
@@ -341,10 +349,10 @@ width: 5px;
 height: 5px;
 border-radius: 100%;
 position: absolute;
-left: 25.5%;
+left: 110%;
 top: 25%;
 }
-.blog-blok__img{
+.img-shop{
     width: 100%;
     height: 225px;
 }
@@ -358,6 +366,81 @@ top: 25%;
     font-size: 16px;
     font-family: Poppins-regular;
 }
+.Recipes-block{
+    color: var(--colarText);
+    max-width: 100%;
+    height: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.Recipes-block__logo{
+    height: 40px;
+    margin: 44px 0 44px 12%;
+}
+.Recipes-block__text{
+    color: var(--maincColar);
+}
+.Recipes-block__logo>svg{
+    height:15px ;
+}
+.Recipes-block__box{
+
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+height: 386px;
+width: clamp(320px,23%,24.7%) ;
+}
+
+.Recipes-block__box::after{
+    position: absolute;
+    content: '';
+    color: var(--colarsecondarytext);
+    font-size: 16px;
+    padding: 6px 10px;
+    width: auto;
+    background-color: #9C9C42;
+    border-top-right-radius: 1%;
+    border-bottom-right-radius:15% ;
+}
+#r1::after{content: 'Breakfast';}
+#r2::after{content: 'Salads';}
+#r3::after{content: 'Main Dishes';}
+
+.foter{
+    margin-top: 100px;
+    background-color: var(--maincColar);
+    width: auto;
+    max-height: 1000px;
+    display: flex;
+    gap: 40px;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap:wrap;
+    padding: 60PX ;
+}
+
+.footer__navigation{
+    color: var(--colarsecondarytext);
+    max-width: 180px;
+    height: 155px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+ }   
+.fotert__title{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.foter__text{
+    text-decoration: none;
+    color: var(--colarsecondarytext);
+}
+
 @media only screen and (max-width: 1550px) {
     .blog-blok__itm{
         position: relative;
@@ -375,8 +458,14 @@ top: 25%;
         }
         .colection-product__listshopbox>.colection-product__shopbox:nth-child(2n+2){
             justify-self: end;
-            width: 100px;
+            width: 300px;
         }
+        .blog-blok__itm>div>svg{
+
+            right: 47%;
+        } 
+
+
 }
 @media only screen and (max-width: 1260px) {
     
@@ -407,10 +496,7 @@ top: 25%;
             justify-content: space-around;
             row-gap: 50px;
         }
-        .colection-product__listshopbox>.colection-product__shopbox:nth-child(2n+2){
-            justify-self: normal;
-            width: 100%;
-        }
+      
        
 }
 @media only screen and (max-width: 800px) {
@@ -451,8 +537,16 @@ top: 25%;
     width: 60%;
     gap: 30px;
 }
+
+.colection-product__listshopbox>.colection-product__shopbox:nth-child(2n+2){
+    justify-self: normal;
+    max-width: 100%;
+    height: 428px;
+        }      
+
 }
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 650px) 
+{
     .colection-product__listshopbox{
         grid-template-columns: 65vw;
         grid-template-rows:repeat(4,428px);
@@ -520,4 +614,6 @@ top: 25%;
     }
 }
 
-
+@media only screen and (max-width: 410px) {
+.foter{justify-content:flex-start; }
+}
