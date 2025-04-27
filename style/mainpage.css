@@ -27,6 +27,7 @@ body{
     --colarsecondarytext: #FFFFFF;
     --colarText: #262626;
     --colorditail: #999898;
+    --hovercolor: #9c7242;
 }
 .header-navigation{
     background-color: var(--colarsecondarytext);
@@ -56,6 +57,15 @@ body{
 .header-navigation_linkitm>a{
     text-decoration: none;
     color: var(--colarText);
+    transition: 0.8s;
+}
+
+.header-navigation_linkitm>a:hover{
+ color: var(--hovercolor);
+ font-size: 1.2rem;
+}
+.header-navigation_linkitm>a:visited{
+    color: var(--maincColar);
 }
 .header-navigation_search-itm{
     justify-self: end;
@@ -190,7 +200,9 @@ cursor: pointer;
     position: relative;
 padding:12px 25px 12px 64px;
 font-size: 1.2rem;
+text-decoration: none;
 }
+
 .colection-product__button::after{
     content: '';
     background-image: url(../shoper-colection/shoper.jpg);
