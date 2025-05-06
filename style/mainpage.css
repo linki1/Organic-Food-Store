@@ -169,11 +169,9 @@ gap: 25px;
     color: var(--colarsecondarytext);
 }
 
-.poster_text--strong:hover{ 
-    color: transparent;
-    transition: 1s;
-    letter-spacing: 30px;
-    -webkit-text-stroke: 1px var(--colarText) ;
+.poster_text--strong{ 
+   animation: text-speace;
+   animation-timeline: view();
    
 }
 .poster_text{
@@ -211,9 +209,13 @@ text-decoration: none;
     align-items: center;
 }
 .colection-product__bigtext{
+    animation: change_colar;
+    animation-timeline:view();
     font-size: 2.8rem;
 }
 .colection-product__bigtext>span{
+    animation: change_colar-revers;
+    animation-timeline:view();
   color: var(--maincColar);
 }
 .shopbox{
@@ -228,6 +230,11 @@ text-decoration: none;
     background-color: var(--colarsecondarytext);
     border-radius: 2%;
     box-shadow: 0px 0px 7px var(--colorditail);
+}
+
+.colection-product__shopbox:hover{
+    animation: activeshopbox_phone 1.5s linear;
+    animation-iteration-count: 1;
 }
 .colection-product__shopbox>div{
     gap: 5px;
@@ -254,7 +261,11 @@ padding:12px 25px 12px 64px;
 font-size: 1.2rem;
 text-decoration: none;
 }
-
+.colection-product__button:hover{
+    transition: 2s;
+    border-color: var(--hovercolor);
+    color: var(--colarText);
+}
 .colection-product__button::after{
     content: '';
     background-image: url(../shoper-colection/shoper.jpg);
@@ -279,6 +290,11 @@ text-decoration: none;
     top: 30%;
     
 }
+.colection-product__button--vraper:hover svg{
+transition: 0.5s;
+right: 5%;
+}
+
 .colection-product__shoperbutton{
     background-color: var(--maincColar);
     color: var(--colarsecondarytext);
@@ -286,6 +302,10 @@ text-decoration: none;
     padding: 12px 56px 12px 29px;
 }
 
+.colection-product__shoperbutton:hover{
+    transition: 1s;
+   background-color: var(--hovercolor);
+}
 .article-poste{
     margin-top: 100px;
     background-image: url(../article/poster.jpg);
@@ -307,9 +327,13 @@ text-decoration: none;
     gap:50px ;
 }
 .article-poste__bigtext{
+    animation: change_colar;
+    animation-timeline:view();
     font-size: 3rem;
 }
 .article-poste__bigtext>b{
+    animation: change_colar-revers;
+    animation-timeline:view();
     color: var(--maincColar);
 }
 .article-poste__text{
@@ -321,7 +345,10 @@ text-decoration: none;
     color: var(--colarsecondarytext);
     padding: 12px 27px;
 }
-
+.article-poste__button:hover{
+    transition: 1s;
+    background-color: var(--hovercolor);
+}
 .blog-blok{
     background-color: var(--colarsecondarytext);
     margin-top: 100px;
@@ -363,6 +390,10 @@ height: 15px;
     position: relative;
     height: 386px;
     width: 23%;
+}
+.blog-blok__itm:hover{
+    transition: 1s;
+scale: 1.05;
 }
 .blog-blok__itm::after{
 content: ' ';
@@ -438,6 +469,7 @@ top: 25%;
     display: flex;
     flex-direction: column;
 }
+
 .Recipes-block__logo{
     height: 40px;
     margin: 44px 0 44px 12%;
@@ -459,7 +491,10 @@ top: 25%;
 height: 386px;
 width: clamp(320px,23%,24.7%) ;
 }
-
+.Recipes-block__box:hover{
+    transition: 1s;
+    scale: 1.05;
+}
 .Recipes-block__box::after{
     position: absolute;
     content: '';
@@ -503,6 +538,79 @@ width: clamp(320px,23%,24.7%) ;
 .foter__text{
     text-decoration: none;
     color: var(--colarsecondarytext);
+}
+.foter__text:hover{
+    transition: 0.5s;
+    color: var(--hovercolor);
+}
+@keyframes change_colar {
+    0%{
+        color:var(--colarText);
+    }
+    100%{
+        color: var(--maincColar);
+    }
+}
+@keyframes change_colar-revers {
+    0%{
+        color:var(--maincColar);
+    }
+    100%{
+        color: var(--colarText);
+    }
+}
+@keyframes text-speace {
+    0%{
+        font-weight: bold;
+        font-size: 3rem ;
+        color: var(--colarsecondarytext);
+    }
+    90%{
+        font-weight: bold;
+        font-size: 3rem ;
+        color: var(--colarsecondarytext);
+    }
+    100%{
+        color: transparent;
+        transition: 1s;
+        letter-spacing: 10px;
+        -webkit-text-stroke: 1px var(--colarText) ;
+    }
+}
+@keyframes activeshopbox {
+    0%{
+        transform: scale(1.2) rotateZ(-20deg);
+    }
+    25%{
+        transform:scale(1.2) rotateZ(20deg);
+    }
+    50%{
+        transform:scale(1.2) rotateZ(-20deg);
+    }
+    75%{
+        transform:scale(1.2) rotateZ(20deg);
+    }
+    100%{
+        transform:scale(1.2) rotateZ(0deg);
+    }
+}
+
+@keyframes activeshopbox_phone {
+    0%{
+        transform: scale(1.05) rotateZ(-6deg);
+    }
+    25%{
+        transform:scale(1.05) rotateZ(6deg);
+    }
+    50%{
+        transform:scale(1.05) rotateZ(-6deg);
+    }
+    75%{
+        transform:scale(1.05) rotateZ(6deg);
+    }
+    100%{
+        transform:scale(1.05) rotateZ(-6deg);
+    }
 }
 @keyframes  loginmeniu{
     0%{
