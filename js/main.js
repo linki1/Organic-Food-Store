@@ -1,16 +1,59 @@
 const serchitm  =  document.querySelector("#serch1");
 const serchform = document.querySelector(".header-navigation__serch");
 const wrapserch = document.querySelector(".header-navigation_wraper-serch");
-console.log(wrapserch)
-serchitm.addEventListener("click", ()=>{
-    console.log('dd');
-    serchform.style.display="flex";
-    serchform.style.zIndex= '100';
-    wrapserch.style.zIndex= '10';
-     wrapserch.addEventListener("click",()=>{
-          serchform.style.display="none";
-           serchform.style.zIndex= '1';
-    wrapserch.style.zIndex= '-1';
+const serchinput = document.querySelector(".header-navigation__input");
+const serchOils = document.querySelectorAll(".header-navigation__shopbox");
+const blogItms = document.querySelectorAll(".blog-blok__itm");
+const recipesItms = document.querySelectorAll(".blog-blok__itm");
+const allBlokItms = document.querySelectorAll(".shop-itm");
+const svgBlog = document.getElementById("recsvg");
+const svgRec = document.getElementById("recsvg");
+serchitm.addEventListener("click", () => {
+  serchform.style.display = "flex";
+  serchform.style.zIndex = '100';
+  wrapserch.style.zIndex = '10';
+});
+
+wrapserch.addEventListener("click", () => {
+  serchform.style.display = "none";
+  serchform.style.zIndex = '1';
+  wrapserch.style.zIndex = '-1';
+   serchOils.forEach((oil)=>{
+      oil.style.display ='none';
+    })
+});
+
+serchinput.addEventListener('input', () => {
+  const finder = serchinput.value.trim().toLowerCase();
+
+  serchOils.forEach((oil) => {
+    const ariaLabel = (oil.getAttribute("aria-label") || "").toLowerCase();
+    const ariaDetails = (oil.getAttribute("aria-details") || "").toLowerCase();
+
+    const matches =
+      finder === "" ||
+      ariaLabel.includes(finder) ||
+      ariaDetails.includes(finder);
+
+    oil.style.display = matches ? "flex" : "none";
+  });
 })
-  })
+
+for (let i = 0; i < allBlokItms.length; i++) {
+  if(i == 3||i == 4||i == 5||i == 9||i == 10||i == 11){
+    allBlokItms[i].style.opacity = 0;
+    allBlokItms[i].style.position = 'absolute';
+  }
   
+}
+console.log(svgBlog)
+svgBlog.addEventListener('click',()=>{
+  for (let i = 0; i < allBlokItms.length; i++) {
+  if(i == 3||i == 4||i == 5){
+    allBlokItms[i].style.opacity = 1;
+    allBlokItms[i].style.position = 'static';
+  }
+  
+}
+})
+
