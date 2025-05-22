@@ -5,9 +5,7 @@ const serchinput = document.querySelector(".header-navigation__input");
 const serchOils = document.querySelectorAll(".header-navigation__shopbox");
 const blogItms = document.querySelectorAll(".blog-blok__itm");
 const recipesItms = document.querySelectorAll(".blog-blok__itm");
-const allBlokItms = document.querySelectorAll(".shop-itm");
-const svgBlog = document.getElementById("recsvg");
-const svgRec = document.getElementById("recsvg");
+
 serchitm.addEventListener("click", () => {
   serchform.style.display = "flex";
   serchform.style.zIndex = '100';
@@ -37,23 +35,5 @@ serchinput.addEventListener('input', () => {
 
     oil.style.display = matches ? "flex" : "none";
   });
-})
-
-for (let i = 0; i < allBlokItms.length; i++) {
-  if(i == 3||i == 4||i == 5||i == 9||i == 10||i == 11){
-    allBlokItms[i].style.opacity = 0;
-    allBlokItms[i].style.position = 'absolute';
-  }
-  
-}
-console.log(svgBlog)
-svgBlog.addEventListener('click',()=>{
-  for (let i = 0; i < allBlokItms.length; i++) {
-  if(i == 3||i == 4||i == 5){
-    allBlokItms[i].style.opacity = 1;
-    allBlokItms[i].style.position = 'static';
-  }
-  
-}
 })
 

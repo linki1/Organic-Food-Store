@@ -455,6 +455,7 @@ height: 15px;
 margin-bottom: 100px;
 }
 .shop-itm{
+    transition: 1s;
     position: relative;
     height: 386px;
     width: 23%;
