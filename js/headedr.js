@@ -3,8 +3,8 @@ const serchform = document.querySelector(".header-navigation__serch");
 const wrapserch = document.querySelector(".header-navigation_wraper-serch");
 const serchinput = document.querySelector(".header-navigation__input");
 const serchOils = document.querySelectorAll(".header-navigation__shopbox");
-const blogItms = document.querySelectorAll(".blog-blok__itm");
-const recipesItms = document.querySelectorAll(".blog-blok__itm");
+// const blogItms = document.querySelectorAll(".blog-blok__itm");
+// const recipesItms = document.querySelectorAll(".blog-blok__itm");
 
 serchitm.addEventListener("click", () => {
   serchform.style.display = "flex";
@@ -37,3 +37,6 @@ serchinput.addEventListener('input', () => {
   });
 })
 
+if(localStorage.getItem('userSavelogin')){
+  console.log('good')
+}

@@ -72,3 +72,26 @@ ifclirec = false
 
 })
 
+// fetch('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user', {
+//   method: 'GET'
+// })
+//   .then((response)=>{
+//     return response.json()
+//   })
+//   .then(data => console.log(data))
+//   .catch(error => console.error('Ошибка:', error));
+
+// fetch('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     name: 'oleg',
+//     Pasword: '1234',
+//     basket: JSON.stringify(arrorders),
+//   })
+// })
+//   .then(response => response.json())
+//   .then(data => console.log('Ответ от сервера:', data))
+//   .catch(error => console.error('Ошибка:', error));
