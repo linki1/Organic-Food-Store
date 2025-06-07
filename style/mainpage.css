@@ -92,19 +92,60 @@ body{
     height: 50px;
 justify-self: end;
 }
-.header-navigation__register-login{
+.header-navigation__serch{
     position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     background-color: var(--colarsecondarytext);
     padding: 5px;
     border-radius: 10px;
     width: 80%;
+    max-height: 300px;
     gap: 5px;
     top: 80%;
-     opacity: 0;
+     display: none;
+     overflow-y: scroll;
+     scrollbar-color: var(--colarsecondarytext) var(--colarsecondarytext);
+}
+.header-navigation__serch-input{
+    display: flex;
+    flex-direction: row;
+
+}
+.header-navigation_wraper-serch{
+    top: 0;
+    position: fixed;
+    width: 98.9vw;
+    height: 3000px;
+    z-index: -1;
+}
+.header-navigation__shopbox{
+    max-width:150px;
+    height: 200px;
+    background-color: var(--colarsecondarytext);
+    border-radius: 2%;
+    box-shadow: 0px 0px 7px var(--colorditail);
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column; 
+}
+.header-navigation__img{
+    width: 60px;
+    height: 100px;
+}
+.header-navigation__shopbox>div{
+ display: flex;
+  flex-direction: column;
+    align-items: center;
+}
+.header-navigation__text{
+    font-size: 0.6rem;
+}
+.header-navigation__name{
+    font-style: italic;
+    font-weight: 200;
 }
 
 .header-navigation_button:hover{
@@ -112,8 +153,26 @@ justify-self: end;
     border-color: #999898;
     scale: 1.05;
 }
-.header-navigation_button:hover ~#reg1 {
-    animation:loginmeniu 12s ;
+.header-navigation__button{
+    position: relative;
+padding:6px 10px 10px 34px;
+font-size: 0.6rem;
+text-decoration: none;
+}
+.header-navigation__button:hover{
+    transition: 2s;
+    border-color: var(--hovercolor);
+    color: var(--colarText);
+}
+.header-navigation__button::after{
+    content: '';
+    background-image: url(../shoper-colection/shoper.jpg);
+    background-repeat: round;
+    width: 13px;
+    height: 16px;
+    position: absolute;
+    left:15%;
+    top: 15%;
 }
 .header-navigation__input{
     background-color: var(--colarText);
@@ -169,9 +228,11 @@ gap: 25px;
     color: var(--colarsecondarytext);
 }
 
-.poster_text--strong{ 
-   animation: text-speace;
-   animation-timeline: view();
+.poster_text--strong:hover{ 
+color: transparent;
+        transition: 1s;
+        letter-spacing: 10px;
+        -webkit-text-stroke: 1px var(--colarText) ;
    
 }
 .poster_text{
@@ -189,9 +250,9 @@ cursor: pointer;
 text-decoration: none;
 }
 .poster_button:hover{
-    animation: ballbtn 3s;
-    will-change: color;
-    animation-fill-mode: forwards;
+    transition: 0.5s;
+background-color: var(--colorditail);
+        border-radius: 10%;
 }
 .colection-product{
     margin-right: auto;
@@ -349,6 +410,7 @@ right: 5%;
     transition: 1s;
     background-color: var(--hovercolor);
 }
+
 .blog-blok{
     background-color: var(--colarsecondarytext);
     margin-top: 100px;
@@ -380,17 +442,25 @@ height: 15px;
     color: var(--maincColar);
 }
 .container-sqrtshop{
-    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     gap: 40px;
+    transition: 1s;
+}
+.blog-blok__container{
+margin-bottom: 100px;
 }
 .shop-itm{
+    transition: 1s;
     position: relative;
     height: 386px;
     width: 23%;
 }
+
 .blog-blok__itm:hover{
     transition: 1s;
 scale: 1.05;
@@ -404,7 +474,7 @@ display: block;
 position: absolute;
 clip-path: circle(99% at 100% 100%);
 top: 45.5%;
-RIGHT: 0%;
+right: 0%;
 }
 
 .blog-blok__itm::before{
@@ -429,7 +499,7 @@ RIGHT: 0%;
 } 
 .blog-blok__itm>div>svg{
     position: absolute;
-    right: 56%;
+    right: 40%;
     top: -10%;
 } 
 
@@ -559,24 +629,6 @@ width: clamp(320px,23%,24.7%) ;
         color: var(--colarText);
     }
 }
-@keyframes text-speace {
-    0%{
-        font-weight: bold;
-        font-size: 3rem ;
-        color: var(--colarsecondarytext);
-    }
-    90%{
-        font-weight: bold;
-        font-size: 3rem ;
-        color: var(--colarsecondarytext);
-    }
-    100%{
-        color: transparent;
-        transition: 1s;
-        letter-spacing: 10px;
-        -webkit-text-stroke: 1px var(--colarText) ;
-    }
-}
 @keyframes activeshopbox {
     0%{
         transform: scale(1.2) rotateZ(-20deg);
@@ -612,36 +664,8 @@ width: clamp(320px,23%,24.7%) ;
         transform:scale(1.05) rotateZ(-6deg);
     }
 }
-@keyframes  loginmeniu{
-    0%{
-        opacity: 0;
-    }
-    20%{
-        opacity: 1;
-    }
-    95%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
 
-}
-@keyframes  ballbtn{
-    0%{
-        transform: translateY(0);
-    }
-    50%{
-        border-radius: 100%;
-        transform: translateY(300%);
-    }
-    100%{
-        background-color: var(--colorditail);
-        border-radius: 0;
-        transform: translateY(0);
-    }
 
-}
 @media only screen and (max-width: 1550px) {
     .blog-blok__itm{
         position: relative;
