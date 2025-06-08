@@ -1,19 +1,42 @@
+:root{
+   --maincColar:#7e9489;
+    --colartext: #FFFFFF;
+    --colarheader: #6d8379;
+    --colorform: rgba(255, 255, 255, 0.1);
+    --hovercolor: #9c7242;
+    --button:#b4aa66;
+    --button2:#222;
+}
+
 body {
       margin: 0;
-      background-color: #7e9489;
+      background-color:var(--maincColar);
       font-family: Arial, sans-serif;
     }
 
     header.header-navigation {
-      display: flex;
-      justify-content: space-between;
+     display: grid;
+     grid-template-rows: 100px 100px;
+     grid-template-columns: 15vw 65vw;
+     background-color:var(--maincColar);
+    }
+.header-navigation__logo-wraper{
+  max-width: 60vw;
+    display: flex;
+      justify-content: center;
       align-items: center;
       padding: 20px 40px;
-      background-color: #6d8379;
-    }
+      background-color: var(--colarheader);
+      grid-row: 1;
+      grid-column: 2;
+}
 
     .header-navigation_logo {
-      height: 100px;
+
+      width:15vw ; 
+  height: 20vh;
+  grid-row: 1/2;
+  grid-column: 1;
     }
 
     .header-navigation_list {
@@ -22,42 +45,67 @@ body {
       gap: 30px;
       padding: 0;
       margin: 0;
+      flex-direction: row;
+      justify-content:space-between;
     }
-
     .header-navigation_linkitm a {
-      color: white;
+      display: block;
+      color: var(--colartext);
       text-decoration: none;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: bold;width: 90px;
     }
 
     .header-navigation_linkitm > a:visited {
-    color: white;
+    color: #9C9C42;
     }
 
     .form-container {
+      max-width: 80vw;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      background-color: var(--colorform);
       margin-top: 80px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 10px;
+      padding: 30px;
     }
 
     .form-box {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 60px;
       border-radius: 10px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 25px;
-      width: 700px;
+      max-width: 80%
     }
-
-    .form-box input[type="text"] {
+   p{
+    color: rgb(219, 46, 33);
+    font-size: 2rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+   }
+    .form-box input[type="text"],input[type='password'] {
+      width: 45vw;
       padding: 20px;
       border: none;
       border-radius: 6px;
       font-size: 20px;
     }
-
+  .paswordWraper{
+    width: 45vw;
+    position: relative;
+  }
+  .showpasword{
+    position: absolute;
+    left: 100%;
+    top: -45%;
+    color: var(--button2);
+    z-index: 10;
+  }
     .form-actions {
       display: flex;
       flex-direction: row;
@@ -75,13 +123,13 @@ body {
     }
 
     .sign-up {
-      background-color: #b4aa66;
-      color: white;
+      background-color: var(--button);
+      color: var(--colartext);
     }
 
     .login {
-      background-color: #222;
-      color: white;
+      background-color: var(--button2);
+      color: var(--colartext)
     }
 
     .form-box input::placeholder {
@@ -93,6 +141,7 @@ body {
     }
 
     .form-actions button {
+      width: 35vw;
   padding: 18px 24px;
   font-size: 18px;
   border: none;
@@ -109,4 +158,39 @@ body {
 
 .form-actions button:active {
   transform: scale(0.97);
+  }
+  @media only screen and (max-width: 1165px) {
+    .header-navigation__logo-wraper{
+  max-width: 60vw;
+    display: flex;
+      justify-content: center;
+    }
+    .header-navigation_list {
+       justify-content:center;
+    }
+  }
+    @media only screen and (max-width: 700px) {
+    header.header-navigation {
+     display: grid;
+     grid-template-rows: 200px;
+     grid-template-columns: 80vw;
+     background-color:var(--maincColar);
+    }
+    .header-navigation_logo{
+          width:28vw ; 
+  height: 25vh;
+    }
+    .header-navigation__logo-wraper{
+      grid-row: 1/2;
+      grid-column: 1;
+    }
+     .header-navigation_logo{
+      z-index: 1;
+     }
+     .header-navigation_list {
+      flex-direction: column;
+     }
+   .header-navigation__logo-wraper{
+            justify-content: flex-end;
+   }
   }

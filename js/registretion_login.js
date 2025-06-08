@@ -1,14 +1,13 @@
-const userLogin = document.querySelector("#fakeelem1");
-const subinputuser= document.querySelector("#subinputuser");
-const subinputps= document.querySelector("#subinputps");
-const subinputpswcon= document.querySelector("#subinputpswcon");
-const userpasword= document.querySelector("#fakeelem2");
-const userconfirmpasword= document.querySelector("#fakeelem3")?document.querySelector("#fakeelem3"):null;
-const sendbtn =document.querySelector("#fakebtn");
-const riderect = document.querySelector('#riderect');
+const userLogin = document.querySelector("#userlog");
+const warningtext = document.querySelector("#warning_text");
+const userpasword= document.querySelector("#userpassword");
+const userconfirmpasword= document.querySelector("#userconfpassword")?document.querySelector("#userconfpassword"):null;
+const sendbtn =document.querySelector(".sign-up");
+const riderect = document.querySelector("#log");
+const showPassword = document.querySelectorAll('.showpasword');
+console.log(showPassword)
 sendbtn.disabled =true;
-riderect?riderect.style.visibility ='hidden':null;
-
+// console.log(warningtext,userLogin,userpasword,sendbtn,userconfirmpasword,riderect)
 getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
   .then(data => {
 
@@ -18,14 +17,14 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
               for (const elem of data) {
               if(elem.name==userLogin.value){
                 sendbtn.disabled =true;
-                subinputuser.style.display = 'block';
-                riderect.style.visibility ='visible';
+                warningtext.textContent = 'login is taken';
+                warningtext.style.display = 'block';
                 return
               }
               else{
+                warningtext.textContent = '';
                 sendbtn.disabled =false;
-                  subinputuser.style.display = 'none';
-                 riderect.style.visibility ='hidden';
+                  warningtext.style.display = 'none';
               }
             }
             
@@ -34,17 +33,25 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
             e.preventDefault();
             console.log(checkProperty(userconfirmpasword,userpasword))
             if(!checkProperty(userconfirmpasword,userpasword)){
-              subinputpswcon.style.display = 'block';
-              subinputps.style.display = 'block';
+              warningtext.textContent = 'password not equal'
+              warningtext.style.display = 'block';
               setTimeout(() => {
-                subinputpswcon.style.display = 'none';
-              subinputps.style.display = 'none';
+                warningtext.textContent = ''
+                warningtext.style.display = 'none';
               }, 3000);
               return
             }
             else if(!userLogin.value.trim()|| !userpasword.value.trim()||!userconfirmpasword.value.trim()){
               showWarningEmptyelements([userLogin,userpasword,userconfirmpasword]);
               return
+            }
+            else if(userLogin.value.length > 32|| userLogin.value.length > 32||userLogin.value.length > 32){
+                warningtext.textContent = 'login or passwod too long'
+              warningtext.style.display = 'block';
+              setTimeout(() => {
+                warningtext.textContent = ''
+                warningtext.style.display = 'none';
+              }, 3000);
             }
             else{
               
@@ -59,6 +66,7 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
               localStorage.setItem('userSavePasword',userpasword.value);
               createdata('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user',{name:userLogin.value,Pasword:userpasword.value,basket:JSON.stringify({})})
               userLogin.value='',userpasword.value='',userconfirmpasword.value='';
+              window.open('./index.html',"_self");
               return
             }
           })
@@ -72,15 +80,11 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
               return
             }
             else if(!checkProperty(data,userLogin.value,'name')||!checkProperty(data,userpasword.value,'Pasword')){
-              subinputps.textContent = 'login or password not find';
-              subinputuser.textContent ='login or password not find';
-              subinputuser.style.display = 'block';
-              subinputps.style.display = 'block';
+              warningtext.textContent = 'login or password not find';
+              warningtext.style.display = 'block';
               setTimeout(() => {
-                subinputuser.style.display = 'none';
-              subinputps.style.display = 'none';
-                 subinputps.textContent = 'password not equal';
-              subinputuser.textContent ='this login is taken! If it your you can login';
+              warningtext.style.display = 'none';
+                 warningtext.textContent = '';
               }, 3000);
               return
             }
@@ -94,7 +98,7 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
               localStorage.setItem('userSaveLogin',userLogin.value);
               localStorage.setItem('userSavePasword',userpasword.value);
               userLogin.value='',userpasword.value='';
-              location.reload();
+             window.open('./index.html',"_self");
               return
             }
             
@@ -104,6 +108,17 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
   console.error('Fetch error:', error);
   alert(`Sorry, we have an error: ${error.message}`);
 });
+if(riderect.textContent == 'log in'){
+  riderect.addEventListener('click',()=>{
+  window.open('./login.html',"_self");
+})
+}
+else{
+    riderect.addEventListener('click',()=>{
+  window.open('./reg.html',"_self");
+})
+}
+
 
       function showWarningEmptyelements(elements) {
         let arr  = [];
@@ -186,6 +201,21 @@ function checkProperty (wrotestuf,checkstuf,ind) {
     return false;
   }
 }
+
+
+showPassword.forEach((elem)=>{
+  console.log(elem.nextElementSibling)
+  elem.addEventListener('click',()=>{
+    
+  if(elem.nextElementSibling.type != 'password'){
+    elem.nextElementSibling.type = 'password';
+  }
+  else{
+    elem.nextElementSibling.type = 'text';
+  }
+})
+})
+
 
 
 

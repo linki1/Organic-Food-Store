@@ -119,7 +119,7 @@ serchinput.addEventListener('input', () => {
 })
 
 loginbtn.addEventListener('click',()=>{
-  window.open('./fake_reg.html',"_self")
+  window.open('./reg.html',"_self")
 })
 if(userLogin){
   userLogo.style.display = 'flex';
