@@ -31,6 +31,10 @@ body {
       font-weight: bold;
     }
 
+    .header-navigation_linkitm > a:visited {
+    color: white;
+    }
+
     .form-container {
       display: flex;
       justify-content: center;
@@ -70,7 +74,7 @@ body {
       flex: 1;
     }
 
-    .buy-now {
+    .sign-up {
       background-color: #b4aa66;
       color: white;
     }
@@ -87,3 +91,22 @@ body {
     .form-box input:focus {
       outline: 2px solid #ccc;
     }
+
+    .form-actions button {
+  padding: 18px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+.form-actions button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+.form-actions button:active {
+  transform: scale(0.97);
+  }
