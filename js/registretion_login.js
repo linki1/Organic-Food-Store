@@ -47,9 +47,19 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
               return
             }
             else{
-              createdata('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user',{name:userLogin.value,Pasword:userpasword.value,basket:JSON.stringify({})})
+              
              console.log(userLogin.value,userpasword.value,userconfirmpasword.value);
-             userLogin.value='',userpasword.value='',userconfirmpasword.value='';
+             if(localStorage.getItem('userSaveLogin')){
+               localStorage.removeItem('userSaveLogin');
+              }
+              else if(localStorage.getItem('serSavePasword')){
+                localStorage.removeItem('userSavePasword');
+              }
+              localStorage.setItem('userSaveLogin',userLogin.value);
+              localStorage.setItem('userSavePasword',userpasword.value);
+              createdata('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user',{name:userLogin.value,Pasword:userpasword.value,basket:JSON.stringify({})})
+              userLogin.value='',userpasword.value='',userconfirmpasword.value='';
+              return
             }
           })
         }else{
@@ -84,6 +94,7 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
               localStorage.setItem('userSaveLogin',userLogin.value);
               localStorage.setItem('userSavePasword',userpasword.value);
               userLogin.value='',userpasword.value='';
+              location.reload();
               return
             }
             
@@ -144,7 +155,6 @@ getData('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user')
 
 
 function onCheng(elem,status,f){
-  console.log('worck')
   if(Array.isArray(elem)){
     elem.map((e)=>{
       e.addEventListener(status,f)
@@ -158,13 +168,7 @@ function onCheng(elem,status,f){
 
 function checkProperty (wrotestuf,checkstuf,ind) {
   let find = null;
-  if(typeof(wrotestuf)== 'string'){
-      wrotestuf.value = wrotestuf.value.trim();
-  }
-  else if(typeof(checkstuf)== 'string'){
-      checkstuf.value = checkstuf.value.trim();
-  }
-  else if(Array.isArray(checkstuf)||Array.isArray(wrotestuf)){
+  if(Array.isArray(checkstuf)||Array.isArray(wrotestuf)){
     let arr = Array.isArray(checkstuf)?checkstuf:wrotestuf;
     let notarr = !Array.isArray(checkstuf)?checkstuf:wrotestuf;
     

@@ -72,8 +72,14 @@ ifclirec = false
 
 })
 
-// fetch('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user', {
-//   method: 'GET'
+// fetch('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user/10', {
+//   method: 'PATCH',
+//   headers:{
+//     'Content-type':'application/json'
+//   },
+//   body:JSON.stringify({
+//   name:'denis'
+//   })
 // })
 //   .then((response)=>{
 //     return response.json()

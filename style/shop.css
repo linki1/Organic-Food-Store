@@ -139,21 +139,25 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
-
+.shop-form__text{
+    text-align: center;
+}
 .shop-form__slider-item{
 opacity: 0;
 position: absolute;
 display: flex;
 flex-direction: column;
-font-size: 1.5rem;
+font-size: 1.2rem;
 justify-content: center;
 align-items: center;
 gap: 20px;
+background-color: var(--colarsecondarytext);
 visibility: visible;
  animation: slide 24s infinite;
 animation-timing-function: ease-out;
-height: 300px;
-animation-fill-mode: both;
+height: 450px;
+color: var(--colarText);
+align-items: center;
 }
 
 .shop-form__img{
@@ -373,15 +377,21 @@ font-size: 1.2rem;
     }
 }
 
+@media only screen and (max-width: 1550px) {
 
+    .header-navigation_search-itm{
+        justify-self: center;
+    }
+
+}
 @media only screen and (max-width: 1300px){
 
     .shop-form__img{
-        width: 200px;
-        height:200px;
+        width: 300px;
+        height:300px;
     }
     .shop-form__slider-item{
-        font-size: 1.1rem;
+        font-size: 0.8rem;
          animation: slide-laptop 24s infinite;
         }
         .shop-form__itm-form{
@@ -390,15 +400,18 @@ font-size: 1.2rem;
 }
 
 
-@media only screen and (max-width: 1550px) {
 
-    .header-navigation_search-itm{
-        justify-self: center;
-    }
-
-}
 @media only screen and (max-width: 1260px) {
-    
+         .shop-form{
+        margin-bottom: 40px;
+    }
+        .shop-form__slider-item{
+        height:250px;
+     }
+    .shop-form__img{
+        width: 150px;
+        height:150px;
+    }
     .header-navigation{
         grid-template-columns:14vw 56vw ;
     }
@@ -432,6 +445,9 @@ font-size: 1.2rem;
     }
 }
 @media only screen and (max-width: 800px) {
+    .shop-form__slider{
+        margin-bottom: 150px;
+    }
     .shop-form__itm-form{
         margin-top: 0px;
     }
@@ -465,6 +481,7 @@ font-size: 1.2rem;
 .shop-form__itm-form{
     grid-template-columns: 50vw;
     grid-template-rows: 80px 80px 80px  80px  60px;
+    margin-bottom: 10px;
 
 }
 .shop-form__button{
@@ -486,18 +503,18 @@ font-size: 1.2rem;
 }
 main{
     grid-template-columns: 100%;
-    grid-template-rows:160px 50% 70%;
+    grid-template-rows:160px 900px 850px;
 }
 }
 @media only screen and (max-width: 550px) {
     
     .header-navigation{
-        grid-template-columns:40vw 40vw;
+        grid-template-columns:40vw 38vw;
         grid-template-rows:280px 130px  ;
         row-gap: 20px;
     }
     main{
-        grid-template-rows:440px 50% 70%;
+        grid-template-rows:440px 900px 850px;
     }
     .header-navigation_search-itm{
         grid-template-columns:50px 50px ;
