@@ -15,10 +15,13 @@ body {
     }
 
     header.header-navigation {
+      width: 80vw;
      display: grid;
      grid-template-rows: 100px 100px;
      grid-template-columns: 15vw 65vw;
      background-color:var(--maincColar);
+     margin-right: auto;
+     margin-left: auto;
     }
 .header-navigation__logo-wraper{
   max-width: 60vw;
@@ -55,7 +58,10 @@ body {
       font-size: 18px;
       font-weight: bold;width: 90px;
     }
-
+.header-navigation_linkitm > a:hover{
+  scale: 1.2;
+  transition: 1s;
+}
     .header-navigation_linkitm > a:visited {
     color: #9C9C42;
     }

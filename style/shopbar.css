@@ -37,79 +37,7 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
-.header-navigation{
-    background-color: var(--colarsecondarytext);
-    margin-left: auto;
-    margin-right:auto ;
-    max-width:80vw;
-    max-height:210px;
-    display: grid;
-    grid-template-columns:14vw 34vw 30vw ;
-    grid-template-rows: 100px;
-}
-.header-navigation_logo{
-    width: 210px;
-    height: 210px;
-}
-.header-navigation_linkpanel{
-    align-self: center;
-}
-.header-navigation_list{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-   width: 34vw;
-    height: 24px;
 
-}
-.header-navigation_linkitm>a{
-    transition: 0.8s;
-    text-decoration: none;
-    color: var(--colarText);
-}
-.header-navigation_search-itm{
-    justify-self: end;
-    grid-template-columns:3vw 3vw 9vw ;
-    display: grid;
-    align-items: center;
-    position: relative;
-}
-
-.header-navigation_iconitm{
-    width: 29px;
-    height: 29px;
-}
-.button{
-    background-color: transparent;
-    text-align: center;
-    color: var(--maincColar);
-    border: 1px solid var(--maincColar);
-    border-radius: 5px;
-    cursor: pointer;
-}
-.header-navigation_button{
-    transition: 1s;
-    width: 110px;
-    height: 50px;
-justify-self: end;
-}
-.header-navigation_button:hover{
-    text-align: center;
-    border-color: #999898;
-    padding: 30px 0 50px 0;
-}
-.header-navigation_search-itm::after{
-    content: ' ';
-    width: 1px;
-    height: 34px;
-    display: block;
-    position: absolute;
-    background-color: var(--colorditail);
-    left: 20%;
-  }
-.header-navigation_iconitm:last-of-type{
-justify-self: end;
-}
 .colection-product{
     margin-right: auto;
     margin-left: auto;
@@ -177,6 +105,10 @@ justify-self: end;
     background-color: var(--colarsecondarytext);
     border-radius: 2%;
     box-shadow: 0px 0px 7px var(--colorditail);
+    transition: 1s;
+}
+.colection-product__shopbox:hover{
+    box-shadow: 1px 1px 10px var(--maincColar);
 }
 .colection-product__shopbox>div{
     gap: 5px;
@@ -205,6 +137,10 @@ justify-self: end;
 padding:12px 25px 12px 64px;
 font-size: 1.2rem;
 text-decoration: none;
+transition: 1s;
+}
+.colection-product__button:hover{
+color: #9c7242;
 }
 
 .colection-product__button::after{
