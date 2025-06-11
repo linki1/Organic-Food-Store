@@ -137,12 +137,26 @@ background-color: var(--colorditail);
     background-color: var(--colarsecondarytext);
     border-radius: 2%;
     box-shadow: 0px 0px 7px var(--colorditail);
+    position: relative; 
+}
+.colection-product__shopbox::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+    background: linear-gradient(90deg, #ffffff00, #ffffff00, #2ff384);
+    background-size: 390% 120%;
+    background-position: 0% 0%;
+   animation: var(--border-anim, none); 
+  z-index: -1;
+  animation-direction:alternate-reverse;
+  animation-iteration-count: 1;
+  border-radius: 12px;
 }
 
-.colection-product__shopbox:hover{
-    animation: activeshopbox_phone 1.5s linear;
-    animation-iteration-count: 1;
-}
+
 .colection-product__shopbox>div{
     gap: 5px;
     display: flex;
@@ -394,6 +408,7 @@ top: 25%;
     color: var(--maincColar);
 }
 .Recipes-block__logo>svg{
+    cursor: pointer;
     height:15px ;
 }
 .Recipes-block__box{
@@ -458,6 +473,14 @@ width: clamp(320px,23%,24.7%) ;
 .foter__text:hover{
     transition: 0.5s;
     color: var(--hovercolor);
+}
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
 }
 @keyframes change_colar {
     0%{

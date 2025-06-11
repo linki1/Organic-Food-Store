@@ -1,6 +1,7 @@
 const allBlokItms = document.querySelectorAll(".shop-itm");
 const svgBlog = document.getElementById("blogsvg");
 const svgRec = document.getElementById("recsvg");
+const articlePosteButton = document.querySelector(".article-poste__button");
 for (let i = 0; i < allBlokItms.length; i++) {
   if(i == 3||i == 4||i == 5||i == 9||i == 10||i == 11){
     allBlokItms[i].style.opacity = 0;
@@ -72,32 +73,13 @@ ifclirec = false
 
 })
 
-// fetch('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user/10', {
-//   method: 'PATCH',
-//   headers:{
-//     'Content-type':'application/json'
-//   },
-//   body:JSON.stringify({
-//   name:'denis'
-//   })
-// })
-//   .then((response)=>{
-//     return response.json()
-//   })
-//   .then(data => console.log(data))
-//   .catch(error => console.error('Ошибка:', error));
-
-// fetch('https://x8ki-letl-twmt.n7.xano.io/api:Ycl_GGkj/store_user', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     name: 'oleg',
-//     Pasword: '1234',
-//     basket: JSON.stringify(arrorders),
-//   })
-// })
-//   .then(response => response.json())
-//   .then(data => console.log('Ответ от сервера:', data))
-//   .catch(error => console.error('Ошибка:', error));
+allBlokItms.forEach((elem)=>{
+  elem.addEventListener("click",()=>{
+    elem.style.cursor = 'pointer';
+    window.open('https://www.instagram.com/organi_oil_store/',"_blank");
+  })
+})
+articlePosteButton.addEventListener('click',()=>{
+  articlePosteButton.style.cursor = 'pointer';
+  window.open('https://www.instagram.com/organi_oil_store/',"_blank");
+})

@@ -145,7 +145,7 @@ function getData(url) {
 buybtn.addEventListener('click',(e)=>{
     e.preventDefault();
     inputs.forEach((elem)=>{
-        console.log(elem.type)
+        
         if(elem.value.trim() == null||elem.value.trim() == undefined||elem.value.trim() == ''){
             let value = elem.value 
             elem.style.transition = '1s'
@@ -160,6 +160,7 @@ buybtn.addEventListener('click',(e)=>{
              return
         }
         else if(elem.type == 'tel'){
+          console.log(elem.value.slice(1,elem.value.length).length,elem.value.slice(1,elem.value.length).length>=9,elem.value)
             let value = elem.value 
             if(isNaN(+elem.value.slice(1,elem.value.length))){
                   elem.style.transition = '1s'
@@ -178,6 +179,18 @@ buybtn.addEventListener('click',(e)=>{
             elem.style.color = "red";
             elem.style.boxShadow ='inset 1px 1px 10px rgb(248, 76, 76) ';
             elem.value = 'you need +';
+            setTimeout(() => {
+                elem.style.color = "";
+            elem.style.boxShadow ='';
+            elem.value = value;
+            }, 3000);
+             return
+            }
+            else if(elem.value.slice(1,elem.value.length).length<=9){
+              elem.style.transition = '1s'
+            elem.style.color = "red";
+            elem.style.boxShadow ='inset 1px 1px 10px rgb(248, 76, 76) ';
+            elem.value = "you'r phone is short";
             setTimeout(() => {
                 elem.style.color = "";
             elem.style.boxShadow ='';

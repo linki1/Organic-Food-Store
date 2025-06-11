@@ -39,7 +39,7 @@ body{
 }
 
 .img-shop{
-    width: 50%;
+    max-width: 50%;
     height: 225px;
     transition: 1s;
 }
@@ -214,6 +214,7 @@ overflow:visible;
     color: var(--maincColar);
 }
 .img-shop {
+    max-width: none;
     width: 100%;
     height: 180px;
 }
